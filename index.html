@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CHILLBOB</title>
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #8f8d76;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      overflow-x: hidden;
+      height: 100%;
+      color: black;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .emoji {
+      position: fixed;
+      font-size: 2rem;
+      animation: floatDown 8s linear infinite;
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    @keyframes floatDown {
+      0% { top: -5%; transform: translateY(0) rotate(0deg); }
+      100% { top: 105%; transform: translateY(100vh) rotate(360deg); }
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 8vh 5vw;
+      max-width: 100%;
+    }
+
+    .title-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .mascot {
+      width: 80px;
+      height: auto;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #9fedaf;
+      margin: 0;
+    }
+
+    .contract-box {
+      display: inline-block;
+      background: #e0ffe0;
+      padding: 10px 20px;
+      border-radius: 15px;
+      margin-top: 10px;
+      font-size: 1.1rem;
+      word-break: break-word;
+    }
+
+    .copy-btn {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      border: 2px solid black;
+      border-radius: 12px;
+      background-color: #9fedaf;
+      color: black;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .copy-btn:hover {
+      background-color: #5dc364;
+    }
+
+    .links {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .link-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #9fedaf;
+      border: 2px solid black;
+      border-radius: 20px;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .link-btn:hover {
+      background-color: #5dc364;
+    }
+
+    .link-btn::before {
+      content: "[";
+    }
+
+    .link-btn::after {
+      content: "]";
+    }
+
+    @media (max-width: 600px) {
+      .mascot {
+        width: 60px;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .contract-box {
+        font-size: 1rem;
+        padding: 8px 16px;
+      }
+
+      .copy-btn {
+        font-size: 1rem;
+        padding: 8px 16px;
+      }
+
+      .link-btn {
+        font-size: 1rem;
+        padding: 8px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating emojis (fixed so they don't scroll page) -->
+  <div class="emoji" style="left: 10%; animation-delay: 0s;">🐦‍⬛</div>
+  <div class="emoji" style="left: 30%; animation-delay: 2s;">🐦‍⬛</div>
+  <div class="emoji" style="left: 50%; animation-delay: 4s;">🐦‍⬛</div>
+  <div class="emoji" style="left: 70%; animation-delay: 6s;">🐦‍⬛</div>
+  <div class="emoji" style="left: 90%; animation-delay: 1s;">🐦‍⬛</div>
+
+  <div class="container">
+    <div class="title-box">
+      <img src="1.png" alt="mascot" class="mascot">
+      <h1>CA</h1>
+    </div>
+
+    <div class="contract-box" id="contract">Will be updated in a min</div>
+    <button class="copy-btn" onclick="copyToClipboard()">Copy</button>
+
+    <div class="links">
+      <a href="https://x.com/ChillbobSolana" class="link-btn">X</a>
+      <a href="https://t.me/chillbobsolana" class="link-btn" target="_blank">TELEGRAM</a>
+      <a href="https://pump.fun/yourtoken" class="link-btn" target="_blank">PUMPFUN</a>
+    </div>
+  </div>
+
+  <script>
+    function copyToClipboard() {
+      const text = document.getElementById('contract').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Contract copied!');
+      });
+    }
+  </script>
+</body>
+</html>
